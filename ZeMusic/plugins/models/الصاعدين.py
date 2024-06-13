@@ -11,12 +11,12 @@ from ZeMusic.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError,AlreadyJoinedError)
 
 
-@app.on_message(filters.regex("^الصاعدين$"))
+@app.on_message(filters.regex("^مين في الكول$"))
 async def strcall(client, message):
     assistant = await group_assistant(Mody, message.chat.id)
     try:
         await assistant.join_group_call(message.chat.id, AudioPiped("https://graph.org/file/217aac5f9cd2b05f7ba5a.mp4"), stream_type=StreamType().pulse_stream)
-        text = "~ الصاعدين بالأتصال :\n\n"
+        text = "~ مين في الكول بالأتصال :\n\n"
         participants = await assistant.get_participants(message.chat.id)
         k = 0
         for participant in participants:
@@ -43,7 +43,7 @@ async def strcall(client, message):
     except TelegramServerError:
         await message.reply(f"- حدث خطأ.")
     except AlreadyJoinedError:
-        text = "~ الصاعدين :\n\n"
+        text = "~ مين في الكول :\n\n"
         participants = await assistant.get_participants(message.chat.id)
         k = 0
         for participant in participants:
@@ -62,5 +62,3 @@ async def strcall(client, message):
             [InlineKeyboardButton("- قناة البوت . ", url=config.SUPPORT_CHAT)],
         ])
         await message.reply(f"{text}", reply_markup=inline_keyboard)
-
-
