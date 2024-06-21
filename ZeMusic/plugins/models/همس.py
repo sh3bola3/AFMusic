@@ -6,7 +6,7 @@ from ZeMusic import app
 
 hmses = {}
 
-@app.on_message(filters.reply & filters.regex("اهمس") & filters.group)
+@app.on_message(filters.reply & filters.regex("همسه") & filters.group)
 async def reply_with_link(client, message):
     user_id = message.reply_to_message.from_user.id
     my_id = message.from_user.id
@@ -14,10 +14,10 @@ async def reply_with_link(client, message):
     start_link = f"https://t.me/{(await app.get_me()).username}?start=hms{my_id}to{user_id}in{bar_id}"
     reply_markup = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("‹ اضغط لارسال الهمسة 🖤 ›", url=start_link)]
+            [InlineKeyboardButton("‹ اضغط لارسال الهمسة 🍀 ›", url=start_link)]
         ]
     )
-    await message.reply_text("‹ اضغط لارسال الهمسة 🖤 ›", reply_markup=reply_markup)
+    await message.reply_text("‹ اضغط لارسال الهمسة 🍀 ›", reply_markup=reply_markup)
 
 waiting_for_hms = False
 @app.on_message(filters.command("start"), group=89)
@@ -49,14 +49,14 @@ async def send_hms(client, message):
         
         await app.send_message(
     chat_id=in_id,
-    text=f"-᚜ - المستخدم » ⦗ [{(await app.get_chat(to_id)).first_name}](tg://openmessage?user_id={to_id}) ⦘ ⋅\n-᚜ - لديك همسة من » ⦗ [{(await app.get_chat(from_id)).first_name}](tg://openmessage?user_id={from_id}) ⦘ 🖤 ⋅\n -᚜ - لا يمكن لاحد غيرك رؤية الهمسة 🖤⋅",
+    text=f"-᚜ - المستخدم » ⦗ [{(await app.get_chat(to_id)).first_name}](tg://openmessage?user_id={to_id}) ⦘ ⋅\n-᚜ - لديك همسة من » ⦗ [{(await app.get_chat(from_id)).first_name}](tg://openmessage?user_id={from_id}) ⦘ 🍀 ⋅\n -᚜ - لا يمكن لاحد غيرك رؤية الهمسة 🍀⋅",
     reply_markup=InlineKeyboardMarkup(
         [
             [
-                    InlineKeyboardButton("‹ اضغط لرؤية الهمسه 🖤 ›", callback_data="hms_answer"),
+                    InlineKeyboardButton("‹ اضغط لرؤية الهمسه 🍀 ›", callback_data="hms_answer"),
                 ],[
                     InlineKeyboardButton(
-                        "‹ َٰ𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝚁𝙱𝙾 ›", url=f"https://t.me/terbo772"),
+                        "‹ 𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝚁𝙱𝙾 ›", url=f"https://t.me/terbo772"),
             ]
         ]                   
 
