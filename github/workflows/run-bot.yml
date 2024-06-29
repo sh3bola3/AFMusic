@@ -1,1 +1,33 @@
+name: Run My Bot
+
+# الأحداث اللي هتشغل الـ Workflow
+on: 
+  push:
+    branches:
+      - main # يشغل الـ Workflow عند أي دفع (Push) جديد للفرع الرئيسي
+  pull_request:
+    branches:
+      - main # يشغل الـ Workflow عند فتح أو تحديث أي طلب سحب (Pull Request) للفرع الرئيسي
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # تشغيل على سيرفر أوبونتو
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2 # سحب الكود من الـ Repository
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # تحديد نسخة بايثون المناسبة للبوت بتاعك
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # التأكد من وجود ملف المتطلبات وتثبيت المكتبات
+
+    - name: Run the bot
+      run: python bot_script.py # تشغيل سكريبت البوت (تأكد من تغيير 'bot_script.py' لاسم سكريبتك الفعلي)
 
