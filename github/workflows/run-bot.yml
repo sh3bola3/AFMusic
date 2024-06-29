@@ -1,33 +1,87 @@
-name: Run My Bot
+name: Dragon-Linux
 
-# الأحداث اللي هتشغل الـ Workflow
-on: 
-  push:
-    branches:
-      - main # يشغل الـ Workflow عند أي دفع (Push) جديد للفرع الرئيسي
-  pull_request:
-    branches:
-      - main # يشغل الـ Workflow عند فتح أو تحديث أي طلب سحب (Pull Request) للفرع الرئيسي
+on:
+
+    push:
+
+    workflow_dispatch:
+
+    
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest # تشغيل على سيرفر أوبونتو
+
+  build:
+
+    runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2 # سحب الكود من الـ Repository
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x' # تحديد نسخة بايثون المناسبة للبوت بتاعك
+       - name: checkout dragon-linux
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        # التأكد من وجود ملف المتطلبات وتثبيت المكتبات
+         uses: actions/checkout@main
 
-    - name: Run the bot
-      run: python bot_script.py # تشغيل سكريبت البوت (تأكد من تغيير 'bot_script.py' لاسم سكريبتك الفعلي)
+       
 
+       - uses: styfle/cancel-workflow-action@0.9.0
+
+         name: "cancel duplicate workflow runs"
+
+         with:
+
+            all_but_latest: true
+
+            access_token: ${{ github.token }}
+
+       - name: initialization dragon-linux
+
+         continue-on-error: true
+
+         run: |
+
+           git config --global user.name ${{ secrets.GIT_NAME }}
+
+           git config --global user.email ${{ secrets.GIT_EMAIL }}
+
+           git config --global credential.helper store
+
+           echo "https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com" > ~/.git-credentials
+
+       - name: cloning repository
+
+         continue-on-error: true
+
+         run: |
+
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} dragon
+
+       - name: running dragon-linux server
+
+         timeout-minutes: 350
+
+         continue-on-error: true
+
+         run: |
+
+           cd dragon
+
+           docker build . -t dragon
+
+           docker run dragon
+
+       - name: loop dragon-linux server
+
+         continue-on-error: true
+
+         run: |
+
+              git clone https://github.com/${GITHUB_REPOSITORY} loop
+
+              cd loop || exit 1
+
+              echo $(date -u +%T%P) >> loop.txt
+
+              git add loop.txt
+
+              git commit -m "Dragon-Linux : Loop $(date -u +%D-%T%P)"
+
+              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:dragon-linux
