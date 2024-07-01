@@ -17,7 +17,7 @@ AMK = APK + 5600000
 BOT_NAME = getenv("TERBO","")
 
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI",None)
+MONGO_DB_URI = getenv("MONGO_DB_URI","mongodb+srv://abood:king@cluster0.rbp1cqz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 480))
 
@@ -67,7 +67,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
 
 
 # Get your pyrogram v2 session from @StringFatherBot on Telegram
-STRING1 = getenv("STRING_SESSION",BAGi8fAAUOK0O49Ga-mEzKMiL1Ac4EwvZAwtoEkzCBEl87Qbxy1hwh-UDmWDFsDXPGlZ-AcgQ0kpJbZ4yY9tm4350h9olut8H38XmGtb45NANZJRXSOpSJ9ZXJwdv_LKz-CvLhCWac0XXx7q2Go4CO55e39TSNOhFoncG5sFMBB46yC2Bas9rhZcDomelsAzx5e423DbRbOFlmDb2O5Zqwa7a8uFRsGEF2EqWjLti0zvuOFw3unpj28ZhHLygGuI0lRQeOGOOwm5e_Y4l0dYP2wGG9oX4VjBOw_37Zuq8qB6iskbHVqQXi25Ar12862yxknWkoQxagxKUfpuC41qrh8sB6a61wAAAAFwO6m-AA)
+STRING1 = getenv("STRING_SESSION"," BAGi8fAAUOK0O49Ga-mEzKMiL1Ac4EwvZAwtoEkzCBEl87Qbxy1hwh-UDmWDFsDXPGlZ-AcgQ0kpJbZ4yY9tm4350h9olut8H38XmGtb45NANZJRXSOpSJ9ZXJwdv_LKz-CvLhCWac0XXx7q2Go4CO55e39TSNOhFoncG5sFMBB46yC2Bas9rhZcDomelsAzx5e423DbRbOFlmDb2O5Zqwa7a8uFRsGEF2EqWjLti0zvuOFw3unpj28ZhHLygGuI0lRQeOGOOwm5e_Y4l0dYP2wGG9oX4VjBOw_37Zuq8qB6iskbHVqQXi25Ar12862yxknWkoQxagxKUfpuC41qrh8sB6a61wAAAAFwO6m-AA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
