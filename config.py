@@ -12,17 +12,17 @@ APK = 5140000000
 API_HASH = getenv("API_HASH","f8bc0484740e07bf3c4e64902ee3e6e4")
 
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = getenv("6659770702:AAH7IQi3aJinsmMZj2ujPbWCsZSQ_hL0mK4")
+BOT_TOKEN = getenv("BOT_TOKEN")
 AMK = APK + 5600000
-BOT_NAME = getenv("TERBO","")
+BOT_NAME = getenv("BOT_NAME","")
 
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI","mongodb+srv://abood:king@cluster0.rbp1cqz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+MONGO_DB_URI = getenv("MONGO_DB_URI",None)
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 480))
 
 # Chat id of a group for logging bot s activities
-LOGGER_ID = int(getenv("-1001734666195"))
+LOGGER_ID = int(getenv("LOGGER_ID"))
 
 # Get this value from @FallenxBot on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", 5491047520))
@@ -35,7 +35,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/sh3bola3/AFMusic",
+    "https://github.com/sh3bola3/AFMusic.git",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 ANK = AMK + 9515
@@ -43,7 +43,7 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SURS_NAME = "𝚂𝚄𝙾𝚁𝙲𝙴 𝚃𝙴𝚁𝙱𝙾"
+SURS_NAME = "𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝚁𝙱𝙾"
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/terbo772")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/ddd_bdb")
 
@@ -67,7 +67,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
 
 
 # Get your pyrogram v2 session from @StringFatherBot on Telegram
-STRING1 = getenv("STRING_SESSION"," BAGi8fAAUOK0O49Ga-mEzKMiL1Ac4EwvZAwtoEkzCBEl87Qbxy1hwh-UDmWDFsDXPGlZ-AcgQ0kpJbZ4yY9tm4350h9olut8H38XmGtb45NANZJRXSOpSJ9ZXJwdv_LKz-CvLhCWac0XXx7q2Go4CO55e39TSNOhFoncG5sFMBB46yC2Bas9rhZcDomelsAzx5e423DbRbOFlmDb2O5Zqwa7a8uFRsGEF2EqWjLti0zvuOFw3unpj28ZhHLygGuI0lRQeOGOOwm5e_Y4l0dYP2wGG9oX4VjBOw_37Zuq8qB6iskbHVqQXi25Ar12862yxknWkoQxagxKUfpuC41qrh8sB6a61wAAAAFwO6m-AA")
+STRING1 = getenv("STRING_SESSION",None)
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
